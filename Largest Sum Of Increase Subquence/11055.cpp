@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int N, mx=0;
+    int arr[1001], dp[1001];
+    
+    cin >> N;
+    for (int i=0; i<N; ++i) {
+        cin >> arr[i];
+        dp[i] = arr[i];
+    };
+    
+    for (int i=0; i<N; ++i) {
+        for (int j=0; j<=i; ++j) {
+            if (arr[j] < arr[i] && dp[i]<dp[j]+arr[i]) {
+                dp[i] = dp[j] + arr[i];
+            }
+        }
+        mx = max(mx, dp[i]);
+    }
+    cout << mx << endl;
+}
