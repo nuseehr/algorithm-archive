@@ -1,28 +1,22 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 
 using namespace std;
 
 int main() {
-    int length;
-    cin >> length;
-    vector<int> arr(length, 0);
-    for (int i=0; i<length; i++) cin >> arr[i];
+    int N, mx=0;
+    int arr[1001], dp[1001];
     
-    int idx = 0;
-    vector<int> lis;
-    lis.push_back(arr[0]);
+    cin >> N;
+    for (int i=0; i<N; ++i) cin >> arr[i];
     
-    for(int i=0; i<length; i++) {
-        if(arr[i] > lis[idx]) {
-            idx++;
-            lis.push_back(arr[i]);
+    for (int i=0; i<N; ++i) {
+        for (int j=0; j<=i; ++j) {
+            if (arr[j] < arr[i] && dp[i]<dp[j]+arr[i]) {
+                dp[i] = dp[j] + arr[i];
+            }
         }
-        else {
-            auto it = lower_bound(lis.begin(), lis.end(), arr[i]);
-            *it = arr[i];
-        }
+        mx = max(mx, dp[i]);
     }
-    cout << lis.size() << endl;
+    cout << mx << endl;
 }
