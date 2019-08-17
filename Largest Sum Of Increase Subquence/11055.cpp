@@ -15,7 +15,7 @@ int main() {
     
     for (int i=0; i<N; ++i) {
         for (int j=0; j<=i; ++j) {
-            if (arr[j] < arr[i] && dp[i]<dp[j]+arr[i]) {
+            if (arr[j] < arr[i] && dp[i] < dp[j]+arr[i]) {
                 dp[i] = dp[j] + arr[i];
             }
         }

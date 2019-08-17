@@ -15,8 +15,7 @@ int main() {
     stack<char> s;
     cin >> str;
     
-    for (int i=0; i<str.length(); ++i) {
-        char e = str.at(i);
+    for (auto e : str) {
         if (e >= 'A' && e <= 'Z') cout << e;
         else if (e == '(') s.push(e);
         else if (e == ')') {
