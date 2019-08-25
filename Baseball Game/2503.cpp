@@ -45,5 +45,6 @@ int main() {
             if (j == N-1) answer++;
         }
     }
+    
     cout << answer << endl;
 }
