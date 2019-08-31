@@ -27,7 +27,6 @@ int main() {
             dp[0][i] = max(dp[1][i-1], dp[1][i-2]) + arr[0][i];
             dp[1][i] = max(dp[0][i-1], dp[0][i-2]) + arr[1][i];
         }
-        
         cout << max(dp[0][N], dp[1][N]) << endl;
     }
 }
