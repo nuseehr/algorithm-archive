@@ -3,10 +3,9 @@
 using namespace std;
 
 bool isPrime(int num) {
-    if (num == 1) return false;
-    else if (num == 2) return true;
+    if (num <= 1) return false;
     
-    for (int i=2; i<num; i++) {
+    for (int i=2; i<=num/2; i++) {
         if (num % i == 0) return false;
     }
     
