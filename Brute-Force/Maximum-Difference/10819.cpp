@@ -20,10 +20,13 @@ int main() {
         for (int i=0; i<N-1; i++) {
             t += abs(arr[i] - arr[i+1]);
         }
+        
         if (t > max) max = t;
+        
         if (!next_permutation(arr, arr+N)) {
             cout << max << endl;
             return 0;
         }
+        
     }
 }
