@@ -13,12 +13,11 @@ void dfs(int n) {
     
     cout << n << " ";
     
+    visited[n] = true;
+    
     for (int i=0; i<e[n].size(); i++) {
         int next = e[n][i];
-        if (!visited[next]) {
-            visited[next] = true;
-            dfs(e[n][i]);
-        }
+        if (!visited[next]) dfs(next);
     }
 }
 
@@ -54,7 +53,6 @@ int main() {
     
     for (int i=1; i<=N; i++) sort(e[i].begin(), e[i].end());
     
-    visited[V] = true;
     dfs(V);
     cout << "\n";
     
