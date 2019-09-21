@@ -20,7 +20,6 @@ int main() {
     
     cin >> N >> M;
     int a, b, answer = 0;
-    
     for (int i=0; i<M; i++) {
         cin >> a >> b;
         e[a].push_back(b);
