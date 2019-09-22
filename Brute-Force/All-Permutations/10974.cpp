@@ -11,7 +11,7 @@ int main() {
     cin >> N;
     
     for (int i=0; i<N; i++) {
-        arr[i] = i+1;
+        arr[i] = i;
         cout << arr[i] << " ";
     }
     cout << "\n";
