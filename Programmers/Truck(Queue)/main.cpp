@@ -1,14 +1,14 @@
+/*
+
+프로그래머스 - 다리를 지나는 트럭 문제.
+
+*/
+
 #include <queue>
 #include <iostream>
 #include <vector>
 
 using namespace std;
-
-/*
- 
- 프로그래머스 - 다리를 지나는 트럭 문제.
- 
- */
 
 int solution(int len, int wt, vector<int> wts) {
     queue<int> q;
