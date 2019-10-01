@@ -4,7 +4,7 @@
 using namespace std;
 
 int N;
-int map[26][26];
+int map[101][101];
 int nums[1000];
 int dir[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
@@ -41,7 +41,7 @@ int main() {
     
     for (int i=0; i<N; i++) {
         for (int j=0; j<N; j++) {
-            scanf("%1d", &map[i][j]);
+            scanf("%d", &map[i][j]);
         }
     }
     for (int i=0; i<N; i++) {
@@ -63,3 +63,4 @@ int main() {
         cout<< nums[i] << endl;
     }
 }
+
