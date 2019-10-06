@@ -1,3 +1,9 @@
+/*
+
+프로그래머스 - 체육복
+
+*/
+
 #include <string>
 #include <vector>
 #include <iostream>
