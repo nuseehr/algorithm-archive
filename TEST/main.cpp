@@ -4,7 +4,7 @@
  
  */
 
-// 1번
+// 코딩 테스트 - 1번
 
 #include <string>
 #include <vector>
@@ -43,7 +43,7 @@ vector<int> solution(int N) {
     return answer;
 }
 
-// 2번
+// 코딩 테스트 - 2번
 
 #include <vector>
 #include <algorithm>
