@@ -5,7 +5,7 @@ def main():
     mx = 100001
     q = [N]
     visited = [False] * mx
-    d = [0 for i in range(mx)]
+    d = [0] * mx
     sec = 0
 
     while q:

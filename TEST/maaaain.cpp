@@ -69,3 +69,78 @@ int solution(vector<int> v) {
     }
     return mx;
 }
+
+
+/*
+
+진학사 코딩 테스트 19.10.27
+
+*/
+
+
+
+// 코딩테스트 1번
+
+def solution(num):
+
+while True:
+    s = str(num)
+    f = r = 1
+    l = int(len(s))
+    
+    if l%2 != 0:
+        num+=1
+        continue
+
+    for i in range(l//2):
+        f *= int(s[i])
+
+    for i in range(l//2, l):
+        r *= int(s[i])
+
+    if f == r:
+        answer = num
+        break
+
+    num += 1
+
+return answer
+                   
+
+
+// 코딩테스트 2번
+
+#include <vector>
+#include <string>
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include <queue>
+
+using namespace std;
+
+vector<string> solution(vector<string> movie) {
+    vector<string> answer;
+    map<string, int, less<string>> m;
+    priority_queue<int> pq;
+    map<string, int>::iterator it;
+    
+    for(auto e: movie) m[e]++;
+
+    for (auto it=m.begin(); it!=m.end(); it++) {
+        pq.push(it->second);
+    }
+    
+    it = m.begin();
+    while(!pq.empty()) {
+        if (pq.top() == it->second) {
+            answer.push_back(it->first);
+            pq.pop();
+            m.erase(it->first);
+            it = m.begin();
+        }
+        else it++;
+    }
+               
+    return answer;
+}

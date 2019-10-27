@@ -28,7 +28,7 @@ def main():
                 break
 
         if e:
-            if frnt + rear <= length:
+            if frnt+rear <= length:
                 if not rvs:
                     arr = arr[frnt:length-rear]
                     print(str(arr).replace('\'', '').replace(' ',''))
