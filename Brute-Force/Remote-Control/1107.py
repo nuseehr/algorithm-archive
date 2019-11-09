@@ -1,12 +1,12 @@
 
 def main():
-    channel = int(input())
+    target = int(input())
     cnt = int(input())
 
     if cnt != 0:
-        nums = list(map(str, input().split()))
+        brkns = list(map(str, input().split()))
     else:
-        nums = []
+        brkns = []
 
     n = 0
     val, val1, val2 = 0, 999999, 999999
@@ -14,37 +14,37 @@ def main():
     while True:
 
         if cnt == 10:
-            print(abs(channel-100))
+            print(abs(target-100))
             break
-        if channel == 100:
+        if target == 100:
             print(0)
             break
 
-        tf1, tf2 = True, True
-        channel_p = list(str(channel+n))
-        channel_m = list(str(channel-n))
+        isBrkn1, isBrkn2 = False, False
+        plus = list(str(target+n))
+        minus = list(str(target-n))
 
-        for i in channel_p:
-            if i in nums:
-                tf1 = False
+        for i in plus:
+            if i in brkns:
+                isBrkn1 = True
                 break
 
-        if tf1 == True:
-            val1 = min(len(channel_p) + n, abs(channel-100))
+        for i in minus:
+            if i in brkns:
+                isBrkn2 = True
 
-        for i in channel_m:
-            if i in nums:
-                tf2 = False
+        if isBrkn1 == False:
+            val1 = min(len(plus) + n, abs(target-100))
 
-        if tf2 == True:
-            val2 = min(len(channel_m) + n, abs(channel-100))
+        if isBrkn2 == False:
+            val2 = min(len(minus) + n, abs(target-100))
 
-        if tf1 == True or tf2 == True:
+        if isBrkn1 == False or isBrkn2 == False:
             print(min(val1, val2))
             break
 
-        if int(''.join(channel_p)) > 500000 and int(''.join(channel_m)) < 0:
-            val = min(abs(0-channel), abs(500000-100))
+        if int(''.join(plus)) > 500000 and int(''.join(minus)) < 0:
+            val = min(abs(0-target), abs(500000-100))
             print(val+1)
             break
 

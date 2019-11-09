@@ -9,6 +9,7 @@ def main():
     sec = 0
 
     while q:
+        print(q)
         cur = q.pop(0)
         sec = d[cur] + 1
 
