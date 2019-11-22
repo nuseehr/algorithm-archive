@@ -38,8 +38,15 @@ int main() {
             cout << endl;
             return 0;
         }
-        func(cur-1, cur);
-        func(cur+1, cur);
-        func(cur*2, cur);
+        
+        int ncur[3] = { cur-1, cur+1, cur*2 };
+        
+        for (auto e: ncur) {
+            if (e >= 0 && e <= 100001 && dist[e] == 0) {
+                dist[e] = dist[cur] + 1;
+                prv[e] = cur;
+                q.push_back(e);
+            }
+        }
     }
 }
