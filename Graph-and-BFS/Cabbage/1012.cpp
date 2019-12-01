@@ -57,5 +57,4 @@ int main() {
     for (int i=0; i<testCases; i++) {
         cout << v[i] << endl;
     }
-    
 }
