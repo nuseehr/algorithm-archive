@@ -9,6 +9,7 @@ int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 int visited[1001][1001];
 int cy, cx, tmts=0;
 int days = 2147483647;
+bool all_ripped = true;
 queue<pair<int, int> > q;
 
 bool isInside(int i, int j) {
@@ -21,13 +22,12 @@ void bfs() {
 
     while (!q.empty()) {
         tmts += q.size();
-        cnt++;
-        
+        cout << q.size() << endl;
+        cout << N*M << " / " << tmts << endl;
         if (N*M == tmts) {
             cout << cnt << endl;
             break;
         }
-        
         for (int k=0; k<q.size(); k++) {
             cy = q.front().first;
             cx = q.front().second;
@@ -40,10 +40,12 @@ void bfs() {
                 if (isInside(dy, dx) && !visited[dy][dx] && !box[dy][dx]) {
                     visited[dy][dx] = visited[cy][cx] + 1;
                     q.push(pair<int, int>(dy, dx));
+                    cout << dy << " / " << dx << " // " << q.size()<<endl;
                 }
             }
         }
-//        // - - - - - - - - - - - - - - - - - - - - -
+        cnt++;
+        // - - - - - - - - - - - - - - - - - - - - -
 //        cout << endl;
 //        for (int i=0; i<N; i++) {
 //            for (int j=0; j<M; j++) {
@@ -53,9 +55,7 @@ void bfs() {
 //        }
 //        // - - - - - - - - - - - - - - - - - - - - -
     }
-    
     if (N*M != tmts) cout << -1 << endl;
- 
 }
 
 int main() {
@@ -64,10 +64,7 @@ int main() {
     for (int i=0; i<N; i++) {
         for (int j=0; j<M; j++) {
             cin >> box[i][j];
-            if (box[i][j] == 1) {
-                q.push(pair<int, int>(i, j));
-                tmts++;
-            }
+            if (box[i][j] == 1) q.push(pair<int, int>(i, j));
             else if (box[i][j] == -1) tmts++;
         }
     }

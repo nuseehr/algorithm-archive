@@ -4,65 +4,58 @@
 using namespace std;
 
 int box[1001][1001];
-int dx[4] = {-1, 0, 1, 0};
-int dy[4] = {0, 1, 0, -1};
+int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+int N, M;
+int tomato = 0;
+queue<pair<int, int> > q;
 
-int main(){
-    int n, m;
-    int found=0, total=0;
-    queue<pair<int, int> > tomatos;
-    cin>>n>>m;
+bool isInside(int y, int x) {
+    return ((y >= 0 && y < M) && (x >= 0 && x < N));
+}
+
+void bfs() {
+    int near, days = 0;
+    int dy, dx;
     
-    for(int i=0; i<m; i++){
-        for(int j=0; j<n; j++){
-            cin>>box[i][j];
-            if(box[i][j] == 1)
-                tomatos.push(make_pair(i, j));
-            else if(box[i][j] == -1)
-                total++;
-        }
-    }
-    pair<int, int> curr;
-    int size, days=0;
-    int nextx, nexty;
+    while(!q.empty()){
+        near = q.size();
+        tomato += q.size();
 
-    while(!tomatos.empty()){
-        size = tomatos.size();
-        total += size;
-
-        if(total == n*m){
-            cout<<days<<endl;
+        if(tomato == N*M){
+            cout << days << endl;
             break;
         }
-
-        for(int i=0; i<size; i++){
-            curr = tomatos.front();
-            tomatos.pop();
+        
+        days++;
+        
+        for(int i=0; i<near; i++){
+            int cy = q.front().first;
+            int cx = q.front().second;
+            q.pop();
         
             for(int j=0; j<4; j++){
-                nextx = curr.first+dx[j];
-                nexty = curr.second+dy[j];
-                if( nextx < 0 || nextx >=m
-                    || nexty < 0 || nexty >=n
-                    || box[nextx][nexty] != 0)
-                    continue;
-                if(box[nextx][nexty] == 0){
-                    box[nextx][nexty] = 1;
-                    tomatos.push(make_pair(nextx, nexty));
+                dy = cy + dir[j][0];
+                dx = cx + dir[j][1];
+                if(isInside(dy, dx) && box[dy][dx] == 0){
+                    box[dy][dx] = 1;
+                    q.push(make_pair(dy, dx));
                 }
             }
         }
-        cout << endl;
-        for (int i=0; i<m; i++) {
-            for (int j=0; j<n; j++) {
-                cout << box[i][j] << " ";
-            }
-            cout << endl;
-        }
-        days++;
     }
-    if(total != n*m)
-        cout<<"-1"<<endl;
-    return 0;
-
+    if(tomato != N*M) cout << "-1" << endl;
 }
+
+int main(){
+    cin >> N >> M;
+    
+    for(int i=0; i<M; i++){
+        for(int j=0; j<N; j++){
+            cin >> box[i][j];
+            if(box[i][j] == 1) q.push(make_pair(i, j));
+            else if(box[i][j] == -1) tomato++;
+        }
+    }
+    bfs();
+}
+
