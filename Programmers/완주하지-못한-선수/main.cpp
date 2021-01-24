@@ -1,3 +1,9 @@
+/*
+
+완주하지 못한 선수 C++ 풀이.
+
+*/
+
 #include <string>
 #include <vector>
 #include <iostream>
