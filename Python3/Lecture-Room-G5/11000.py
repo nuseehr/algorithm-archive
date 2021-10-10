@@ -16,9 +16,11 @@ for i in range(N):
 TimeTable.sort(key=lambda x:x[0])
 heapq.heappush(Room, TimeTable[0][1])
 
-# 강의실의 수를 담을 Room에 강의 종료 시간을 넣어준다.
-# 힙 안에 있는 최소 힙의 강의 종료시간보다 TimeTable 배열 안에서
-# 이른 시간이 나오면 그것은 강의실이 하나 더 필요함을 나타낸다.
+'''
+강의실의 수를 담을 Room에 강의 종료 시간을 넣어준다.
+힙 안에 있는 최소 힙의 강의 종료시간보다 TimeTable 배열 안에서
+이른 시간이 나오면 그것은 강의실이 하나 더 필요함을 나타낸다.
+'''
 for i in range(1, N):
     if TimeTable[i][0] < Room[0]:
         heapq.heappush(Room, TimeTable[i][1])
