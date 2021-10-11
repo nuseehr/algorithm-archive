@@ -3,10 +3,7 @@ from collections import deque
 
 N, M = map(int, sys.stdin.readline().split())
 Arr = list(map(int, sys.stdin.readline().split()))
-Q = deque([])
-
-for i in range(N):
-    Q.append(i+1)
+Q = deque([i for i in range(1, N+1)])
     
 i = 0
 Cnt = 0
