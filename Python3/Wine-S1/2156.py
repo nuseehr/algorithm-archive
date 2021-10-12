@@ -1,3 +1,5 @@
+# 2579 계단 오르기 문제와 비슷한 문제
+
 import sys
 N = int(sys.stdin.readline())
 Wines = [0]
@@ -18,4 +20,4 @@ else:
         Dp[i] = max(Dp[i-3] + Wines[i] + Wines[i-1], Dp[i-2] + Wines[i])
         Dp[i] = max(Dp[i-1], Dp[i])
 
-    print(Dp[N])
+    print(Dp)
