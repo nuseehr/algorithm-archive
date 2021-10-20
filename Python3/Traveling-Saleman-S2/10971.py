@@ -1,19 +1,21 @@
 import sys
 
 def DFS(Cur, Cost, Cnt):
-    #print(Cur, "/", Cost, "/", Cnt, Seen)
+    print(Cur, "/", Cost, "/", Cnt, Seen)
     global MinCost
 
     if Cnt == N:
         if Graph[Cur][0] > 0:
-            #print(MinCost, Cost+Graph[Cur][0])
+            print("MIN MIN ", MinCost, Cost+Graph[Cur][0])
             MinCost = min(MinCost, Cost+Graph[Cur][0])
         return
         
     for i in range(N):
         if Graph[Cur][i] > 0 and Seen[i] == 0:
             Seen[i] = 1
+            print("COST =", Cost, Graph[Cur][i])
             DFS(Cur=i, Cost=Cost+Graph[Cur][i], Cnt=Cnt+1)
+            print("END SEARCH ", i)
             Seen[i] = 0
 
 
