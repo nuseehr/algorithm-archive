@@ -1,3 +1,4 @@
+# DFS
 import sys
 # 파이썬 재귀 문제 해결시 필수 추가해 줄 것.
 sys.setrecursionlimit(100000)
