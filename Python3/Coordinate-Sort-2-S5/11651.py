@@ -12,7 +12,7 @@ Arr.sort(key=lambda x:x[0])
 동일한 0번째 인덱스를 가진 1번째 인덱스에 대해서는 정렬이 되지 않았음을 알 수 있다.
 
 2. 두번째 값 기준 정렬.
-Arr.sort(key=lambda x:x[1])
+Arr.sort(key=lambda x: x[1])
 
 결과 : [[1, 3], [1, 2], [2, 1], [3, 4], [3, 2]]
 여기서는 먼저 0번째 인덱스에 대해서 오름차순으로 정렬한 뒤,
@@ -38,8 +38,9 @@ Arr = [[0]*2 for _ in range(N)]
 for i in range(N):
     Arr[i] = list(map(int, sys.stdin.readline().split()))
     
-Arr.sort()
+Arr.sort(key=lambda x: (x[1], x[0]))
 
 for i in range(N):
     print(Arr[i][0], Arr[i][1])
+
 
