@@ -11,7 +11,7 @@ S = "bbbaaabbb"         0
 '''
 from itertools import groupby
 
-def solution(A):
+def solution(S):
     Result = 0
     Arr = [len("".join(val)) for key, val in groupby(S)]
     Mx = max(Arr)
@@ -21,3 +21,5 @@ def solution(A):
             
     return Result
 
+if __name__ == '__main__':
+    print(solution("babaa"))

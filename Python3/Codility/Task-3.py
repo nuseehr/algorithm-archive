@@ -28,3 +28,5 @@ def solution(A):
     return Result
 
 
+if __name__ == '__main__':
+    print(solution([1, 1, 3, 4, 4, 4]))

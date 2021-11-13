@@ -19,13 +19,17 @@ def solution(A):
     
     while A:
         e = A.pop()
-        if e % 2 == 0 and Even = False:
+        if e % 2 == 0 and Even == False:
             Result += e
             Even = True
-        elif e % 2 == 1 and Odd = False:
+        elif e % 2 == 1 and Odd == False:
             Result += e
             Odd = True
         if Odd == True and Even == True:
             break
             
     return Result
+
+
+if __name__ == '__main__':
+    print(solution([5, 3, 10, 6, 11]))
