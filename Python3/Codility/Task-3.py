@@ -23,10 +23,12 @@ def solution(A):
             j += 1
         Temp = j - i
         Result += min(abs(A[i]-Temp), Temp)
+        print("min =", min(abs(A[i]-Temp), Temp), Temp)
         i = j
-            
+        
+        print("Result =", Result)
     return Result
 
 
 if __name__ == '__main__':
-    print(solution([1, 1, 3, 4, 4, 4]))
+    print(solution([1, 1, 1, 1, 3, 3, 4 ,4 ,4 ,4, 4]))
