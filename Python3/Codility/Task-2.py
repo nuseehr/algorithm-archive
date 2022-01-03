@@ -11,15 +11,22 @@ S = "bbbaaabbb"         0
 '''
 from itertools import groupby
 
+
 def solution(S):
     Result = 0
+    '''
+    Arr = "".join(val) for key, val in groupby(S)
+    groupby 로 만든 배열 Arr은 아래와 같다.
+    -> ['b', 'a', 'b', 'aa']
+    '''
     Arr = [len("".join(val)) for key, val in groupby(S)]
     Mx = max(Arr)
-    
+
     for i in Arr:
         Result += Mx-i
-            
+
     return Result
+
 
 if __name__ == '__main__':
     print(solution("babaa"))
