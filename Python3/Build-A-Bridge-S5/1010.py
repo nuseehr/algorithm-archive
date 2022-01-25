@@ -13,8 +13,8 @@ while TestCases:
     # mCn = mPn / n!
     # mPn = m! / (m-n)!
     N, M = map(int, sys.stdin.readline().split())
-    NumberOfCases = int(my_factorial(
-        M) / (my_factorial(M-N) * my_factorial(N)))
+    NumberOfCases = my_factorial(
+        M) // (my_factorial(M-N) * my_factorial(N))
 
     print(NumberOfCases)
     TestCases -= 1
