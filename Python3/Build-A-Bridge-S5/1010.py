@@ -18,3 +18,21 @@ while TestCases:
 
     print(NumberOfCases)
     TestCases -= 1
+
+'''
+Dp = [0] * 31
+Dp[0] = 1
+Dp[1] = 1
+ 
+for i in range(2, 31):
+  Dp[i] = Dp[i-1] * i
+ 
+TestCases = int(input())
+for i in range(T):
+  N, M = map(int, input().split())
+  A = Dp[M-N]
+  B = Dp[M]
+  C = Dp[N]
+ 
+  print((B//A)//C)
+'''
