@@ -15,9 +15,9 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int hour = Integer.parseInt(st.nextToken());
         int minute = Integer.parseInt(st.nextToken());
-        int mid = 60;
-        if (minute >= 0 && minute < 45) {
-            minute = mid + (minute - 45);
+
+        if (minute < 45) {
+            minute = 60 + (minute - 45);
             hour -= 1;
             if (hour < 0) hour = 23;
         } else {
